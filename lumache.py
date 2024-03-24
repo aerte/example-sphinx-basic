@@ -2,13 +2,13 @@ import os.path as osp
 
 import pandas as pd
 from torch_geometric.data import download_url
-from dglchem.utils.data import GraphDataSet
+#from dglchem.utils.data import GraphDataSet
 
 __all__ = [
     'LogP'
 ]
 
-class LogP(GraphDataSet):
+class LogP(object):
     """A dataset class inspired by the Torchvision datasets such as MNIST. It will download the corrected *logP* Dataset
     from https://github.com/nadinulrich/log_P_prediction/blob/30f2f6ad0d7806a3246a5b3da936aa02478d5202/Dataset_and_Predictions.xlsx
     [1], first introduced in [2], should it not already exist. It then initializes it into a **GraphDataSet** class.
@@ -91,15 +91,15 @@ class LogP(GraphDataSet):
         labels = df.columns[3]
         self.target_name = 'logP'
 
-        super().__init__(smiles = df.SMILES, target = df[labels], global_features=global_features,
-                         allowed_atoms = allowed_atoms, only_organic=only_organic,
-                         atom_feature_list = atom_feature_list,
-                         bond_feature_list = bond_feature_list, split=split, split_type=split_type,
-                         split_frac=split_frac, custom_split=custom_split, log = log)
+        #super().__init__(smiles = df.SMILES, target = df[labels], global_features=global_features,
+        #                 allowed_atoms = allowed_atoms, only_organic=only_organic,
+        #                 atom_feature_list = atom_feature_list,
+        #                bond_feature_list = bond_feature_list, split=split, split_type=split_type,
+        #                 split_frac=split_frac, custom_split=custom_split, log = log)
 
-        self.data_name = 'LogP'
+        #self.data_name = 'LogP'
 
 
-        if save_data_filename is not None:
-            self.save_data_set(filename=save_data_filename)
-            self.get_smiles()
+        #if save_data_filename is not None:
+        #    self.save_data_set(filename=save_data_filename)
+        #    self.get_smiles()
